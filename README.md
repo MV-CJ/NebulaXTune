@@ -19,7 +19,7 @@ Seja você um profissional da música ou apenas um apaixonado por som, o NebulaX
 
 A ideia do NebulaXTune nasceu da experiência pessoal de ouvir músicas produzidas por artistas independentes. Muitas vezes, ao apreciar essas criações, surgia a dificuldade de reconhecer tons e identificar as notas tocadas com precisão — especialmente para quem não tem um ouvido musical treinado.
 
-Mesmo utilizando ferramentas de geração musical como o Suno.AI, a compreensão da estrutura musical e dos elementos sonoros ainda não era tão clara. Foi aí que surgiu o propósito do projeto: criar uma ferramenta acessível, que permita **entender o tom da música, identificar instrumentos e separar facilmente vocais de instrumentais**.
+Mesmo utilizando ferramentas de geração musical, a compreensão da estrutura musical e dos elementos sonoros ainda não era tão clara. Foi aí que surgiu o propósito do projeto: criar uma ferramenta acessível, que permita **entender o tom da música, identificar instrumentos e separar facilmente vocais de instrumentais**.
 
 O NebulaXTune nasce como uma ponte entre a tecnologia e a criatividade musical, ajudando qualquer pessoa — com ou sem formação técnica — a explorar, aprender e criar com mais confiança.
 
