@@ -2,9 +2,10 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.db.database import get_db
 from app.models.user import User
-from app.core.security import hash_password, verify_password
+from app.core.security import hash_password, verify_password, create_access_token, ACCESS_TOKEN_EXPIRE_MINUTES
 from pydantic import BaseModel, model_validator
 import httpx
+from datetime import timedelta
 
 router = APIRouter()
 
@@ -47,7 +48,6 @@ def login(data: LoginRequest, db: Session = Depends(get_db)):
             db.add(user)
             db.commit()
             db.refresh(user)
-        return {"message": f"Logged in with GitHub as {user.email}", "user_id": user.id}
 
     else:
         # Login local (email + senha)
@@ -56,4 +56,16 @@ def login(data: LoginRequest, db: Session = Depends(get_db)):
             raise HTTPException(status_code=400, detail="Invalid credentials")
         if not verify_password(data.password, user.hashed_password):
             raise HTTPException(status_code=400, detail="Invalid credentials")
-        return {"message": f"Logged in as {user.email}", "user_id": user.id}
+
+    # Geração de token para ambos os casos
+    access_token = create_access_token(
+        data={"sub": str(user.id)},
+        expires_delta=timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    )
+
+    return {
+        "access_token": access_token,
+        "token_type": "bearer",
+        "user_id": user.id,
+        "email": user.email
+    }

@@ -3,5 +3,7 @@ uvicorn
 sqlalchemy
 psycopg2-binary
 passlib[bcrypt]
+bcrypt<4
 python-dotenv
-httpx  # para GitHub OAuth
+httpx
+python-jose
